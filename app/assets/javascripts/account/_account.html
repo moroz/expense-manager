@@ -1,5 +1,5 @@
 <h1>Account details</h1>
-<ul data-ng-repeat="entry in account.entries">
-  <li id="{{entry.id}}">{{entry.amount}} {{entry.description}}</li>
+<ul data-ng-repeat="entry in account.entries" class="account-entries">
+  <li id="{{entry.id}}">{{entry.amount | currency }} {{entry.description}}</li>
 </ul>
-{{ account.sum() }}
+<span class="account-balance">Current balance: {{ account.sum() | currency }}</span>
