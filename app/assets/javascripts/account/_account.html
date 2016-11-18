@@ -9,7 +9,7 @@
     <td class="entry__description">{{ entry.description }}</td>
   </tr>
   <tfoot>
-    <td class="account__total">Total: {{ account.sum() | currency }}</td>
+    <td class="account__total">Total: {{ (account.balance || account.sum()) | currency }}</td>
     <td></td>
   </tfoot>
 </table>
@@ -19,3 +19,4 @@
   <a href="#/income" class="success button">I've earned some money</a>
 </div>
 
+<a data-ng-click="account.getFromServer()">Reload data</a>

@@ -9,7 +9,13 @@ angular.module('MeiQian', ['ui.router', 'templates'])
         .state('account', {
           url: '/account',
           templateUrl: 'account/_account.html',
-          controller: 'AccountController'
+          controller: 'AccountController',
+          resolve: {
+            accountPromise: ['account', function(account) {
+              if (!account.loaded)
+                return account.getFromServer();
+            }]
+          }
         })
         .state('newIncome', {
           url: '/income',
