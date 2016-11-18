@@ -3,3 +3,5 @@
 //= require angular-ui-router
 //= require app
 //= require_tree .
+
+$(function(){ $(document).foundation(); });

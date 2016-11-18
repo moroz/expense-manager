@@ -11,5 +11,5 @@ angular.module('MeiQian', ['ui.router', 'templates'])
         templateUrl: 'account/_account.html',
         controller: 'AccountController'
       });
-      $urlRouterProvider.otherwise('home');
+      $urlRouterProvider.otherwise('account');
     }]);

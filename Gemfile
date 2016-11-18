@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'responders'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

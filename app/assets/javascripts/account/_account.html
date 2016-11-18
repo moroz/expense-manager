@@ -1,5 +1,20 @@
 <h1>Account details</h1>
-<ul data-ng-repeat="entry in account.entries" class="account-entries">
-  <li id="{{entry.id}}">{{entry.amount | currency }} {{entry.description}}</li>
-</ul>
-<span class="account-balance">Current balance: {{ account.sum() | currency }}</span>
+<table>
+  <thead>
+    <td class="entry__amount">Amount</td>
+    <td>Description</td>
+  </thead>
+  <tr data-ng-repeat="entry in account.entries" data-ng-class="entry.amount < 0 ? 'expense' : 'income'">
+    <td class="entry__amount">{{ entry.amount | currency }}</td>
+    <td class="entry__description">{{ entry.description }}</td>
+  </tr>
+  <tfoot>
+    <td colspan="2">Total: {{ account.sum() | currency }}</td>
+  </tfoot>
+</table>
+
+<div class="expanded button-group">
+  <a class="alert button">I've spent some money</a>
+  <a class="success button">I've earned some money</a>
+</div>
+

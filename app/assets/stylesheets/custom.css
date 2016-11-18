@@ -1,0 +1,11 @@
+.income, tr.income:nth-of-type(even) {
+  background-color: #67db7f;
+}
+
+.expense, tr.expense:nth-of-type(even) {
+  background-color: #ff826e;
+}
+
+td.entry__amount {
+  width: 180px;
+}
