@@ -6,6 +6,7 @@
   background-color: #ff826e;
 }
 
-td.entry__amount {
+td.entry__amount, td.account__total {
   width: 180px;
+  text-align: right;
 }

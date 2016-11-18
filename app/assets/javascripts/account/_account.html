@@ -9,7 +9,8 @@
     <td class="entry__description">{{ entry.description }}</td>
   </tr>
   <tfoot>
-    <td colspan="2">Total: {{ account.sum() | currency }}</td>
+    <td class="account__total">Total: {{ account.sum() | currency }}</td>
+    <td></td>
   </tfoot>
 </table>
 

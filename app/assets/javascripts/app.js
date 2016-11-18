@@ -13,7 +13,7 @@ angular.module('MeiQian', ['ui.router', 'templates'])
         })
         .state('newIncome', {
           url: '/income',
-          templateUrl: 'account/_new_entry.html',
+          templateUrl: 'account/_new_income.html',
           controller: 'AccountController',
           params: {
             income: true
@@ -21,7 +21,7 @@ angular.module('MeiQian', ['ui.router', 'templates'])
         })
         .state('newExpense', {
           url: '/expense',
-          templateUrl: 'account/_new_entry.html',
+          templateUrl: 'account/_new_expense.html',
           controller: 'AccountController',
           params: {
             income: false

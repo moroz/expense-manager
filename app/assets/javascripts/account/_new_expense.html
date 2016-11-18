@@ -1,0 +1,13 @@
+<h1>Add new expense</h1>
+<form novalidate data-ng-submit="submitEntry()">
+  <label>What did you spend the money on?
+    <input type="text" data-ng-model="entry_description">
+  </label>
+  <label>How much did you spend?
+    <input type="number" data-ng-model="entry_amount">
+  </label>
+  <button type="submit" class="alert expanded button">
+    Submit expense
+  </button>
+</form>
+
