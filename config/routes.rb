@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'entries/create'
+
   get 'accounts_controller/show'
 
   root to: 'application#angular'
