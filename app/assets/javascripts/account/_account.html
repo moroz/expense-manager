@@ -1,0 +1,5 @@
+<h1>Account details</h1>
+<ul data-ng-repeat="entry in account.entries">
+  <li id="{{entry.id}}">{{entry.amount}} {{entry.description}}</li>
+</ul>
+{{ account.sum() }}
