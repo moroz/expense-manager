@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20161118080936) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "accounts", force: :cascade do |t|
     t.string   "title"
     t.string   "currency"
@@ -26,7 +29,8 @@ ActiveRecord::Schema.define(version: 20161118080936) do
     t.integer  "account_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["account_id"], name: "index_entries_on_account_id"
+    t.index ["account_id"], name: "index_entries_on_account_id", using: :btree
   end
 
+  add_foreign_key "entries", "accounts"
 end
