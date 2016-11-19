@@ -1,0 +1,9 @@
+alcohol:
+  description: Alcohol
+  amount: -320.0
+  account: main
+
+scholarship:
+  description: Scholarship
+  amount: 1400.0
+  account: main
