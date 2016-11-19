@@ -1,6 +1,6 @@
 class Entry < ApplicationRecord
   belongs_to :account
-  before_create :update_account_balance
+  after_create :update_account_balance
 
   private 
 

@@ -1,6 +1,5 @@
 angular.module('MeiQian')
   .controller('AccountController', ['account', '$state', '$scope', function(account, $state, $scope) {
-    $scope.name = "Hello World";
     $scope.account = account;
     $scope.income = $state.params.income;
     $scope.submitEntry = function() {
@@ -9,11 +8,11 @@ angular.module('MeiQian')
       if (!$scope.income) {
         amount = -amount;
       }
-      account.entries.push({
-        id: 0,
-        amount: amount,
-        description: $scope.entry_description
-      });
+      account.addEntry($scope.entry_description, amount)
+        .success(function(entry) {
+          account.entries.push(entry);
+          account.balance = account.sum();
+        });
       $state.go('account');
     };
 

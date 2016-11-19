@@ -3,7 +3,7 @@ angular.module('MeiQian')
     o = { entries: [], title: "", loaded: false };
     o.sum = function() {
       return this.entries.map(function(entry) {
-        return entry.amount;
+        return parseFloat(entry.amount);
       }).reduce(function(a,b) {
         return a + b;
       });
@@ -12,9 +12,11 @@ angular.module('MeiQian')
       return $http.get('/account.json')
         .success(function(data) {
           angular.copy(data.entries, o.entries);
-          o.balance = data.balance;
           o.loaded = true
         });
+    };
+    o.addEntry = function(description, amount) {
+      return $http.post('/account/entries.json', {description: description, amount: amount});
     };
     return o;
   }]);
