@@ -12,7 +12,8 @@ angular.module('MeiQian')
       return $http.get('/account.json')
         .success(function(data) {
           angular.copy(data.entries, o.entries);
-          o.loaded = true
+          o.balance = data.balance;
+          o.loaded = true;
         });
     };
     o.addEntry = function(description, amount) {

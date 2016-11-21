@@ -9,14 +9,24 @@
     <td class="entry__description">{{ entry.description }}</td>
   </tr>
   <tfoot>
-    <td class="account__total">Total: {{ (account.balance || account.sum()) | currency }}</td>
-    <td></td>
+    <td class="account__total">Total:
+      <span ng-class="account.sum() < 0 ? 'negative' : 'positive'">
+        {{ account.sum() | currency }}
+      </span>
+    </td>
+    <td class="account__balance">
+      <span ng-hide="round(account.balance) === round(account.sum())">
+        Account balance:
+        <span ng-class="account.balance < 0 ? 'negative' : 'positive'">
+          {{ account.balance | currency }}
+        </span>
+      </span>
   </tfoot>
 </table>
 
 <div class="expanded button-group">
-  <a href="#/expense" class="alert button">I've spent some money</a>
-  <a href="#/income" class="success button">I've earned some money</a>
+  <a href="#/expense" class="alert button radius">I've spent some money</a>
+  <a href="#/income" class="success button radius">I've earned some money</a>
 </div>
 
 <a data-ng-click="account.getFromServer()">Reload data</a>

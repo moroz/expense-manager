@@ -1,0 +1,16 @@
+@import 'custom_variables';
+
+.row {
+  margin: 1em;
+}
+
+.entry__amount {
+  font-weight: bold;
+}
+.income .entry__amount, .positive { color: $custom-green; }
+.expense .entry__amount, .negative { color: $custom-red; }
+
+td.entry__amount, td.account__total {
+  width: 180px;
+  text-align: right;
+}

@@ -15,5 +15,8 @@ angular.module('MeiQian')
         });
       $state.go('account');
     };
+    $scope.round = function(value) {
+      return Math.round(parseFloat(value)*100)/100;
+    };
 
   }]);
