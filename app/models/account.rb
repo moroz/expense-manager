@@ -8,8 +8,6 @@ class Account < ApplicationRecord
   end
 
   def update_balance!
-    balance = self.entries.map(&:amount).sum
-
-    self.update_attributes(balance: balance)
+    self.update_attributes(balance: self.entries.sum(:amount))
   end
 end
