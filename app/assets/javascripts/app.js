@@ -12,8 +12,12 @@ angular.module('MeiQian', ['ui.router', 'templates'])
           controller: 'AccountController',
           resolve: {
             accountPromise: ['account', function(account) {
-              if (!account.loaded)
+              if (!account.loaded) {      // only request account.json from the server if it's not loaded yet
                 return account.getFromServer();
+              }
+              else {
+                return true;
+              }
             }]
           }
         })

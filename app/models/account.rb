@@ -4,7 +4,7 @@ class Account < ApplicationRecord
   scope :current, -> { first }
 
   def as_json(options = {})
-    super(options.merge(include: :entries))
+    super(options.merge(include: {entries: {except: [:account_id, :updated_at]}}))
   end
 
   def update_balance!

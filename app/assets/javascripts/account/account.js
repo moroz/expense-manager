@@ -13,6 +13,7 @@ angular.module('MeiQian')
         .success(function(data) {
           angular.copy(data.entries, o.entries);
           o.balance = data.balance;
+          o.currency = data.currency;
           o.loaded = true;
         });
     };
