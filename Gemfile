@@ -12,6 +12,7 @@ gem 'responders'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
 gem 'foundation-rails'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug', platform: :mri
