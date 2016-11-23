@@ -1,7 +1,22 @@
 class AccountsController < ApplicationController
-  def show
-    account = Account.includes(:entries).current
+  before_action :authenticate
+  layout :which_layout
 
-    respond_with account
+  def angular
+    render 'layouts/angular'
+  end
+
+  def show
+    respond_with current_user.account
+  end
+
+  private
+
+  def which_layout
+    'angular'
+  end
+
+  def authenticate
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end

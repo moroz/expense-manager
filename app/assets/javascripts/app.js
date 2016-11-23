@@ -1,17 +1,12 @@
-angular.module('MeiQian', ['ui.router', 'templates', 'Devise'])
+angular.module('MeiQian', ['ui.router', 'templates'])
   .config(['$stateProvider', '$urlRouterProvider', 
     function($stateProvider, $urlRouterProvider) {
-      $stateProvider.state('login', {
-          url: '/login',
-          templateUrl: 'auth/_login.html',
-          controller: 'AuthController',
-        })
+      $stateProvider
         .state('account', {
           url: '/account',
           templateUrl: 'account/_account.html',
           controller: 'AccountController',
           resolve: {
-            authenticate: authenticate,
             accountPromise: ['account', function(account) {
               if (!account.loaded) {      // only request account.json from the server if it's not loaded yet
                 return account.getFromServer();
@@ -31,16 +26,5 @@ angular.module('MeiQian', ['ui.router', 'templates', 'Devise'])
           templateUrl: 'account/_new_income.html',
           data: { income: true }
         });
-      $urlRouterProvider.otherwise('login');
-
-      function authenticate($q, Auth, $state, $timeout) {
-        if (Auth.isAuthenticated()) {
-          return $q.when();
-        }
-        else {
-          $timeout(function() {
-            $state.go('login');
-          });
-        }
-      }
+      $urlRouterProvider.otherwise('account');
     }]);

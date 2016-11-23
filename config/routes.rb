@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'application#angular'
+  root to: 'accounts#angular'
 
   resource :account, only: [:show] do
     resources :entries, only: [:show,:create]

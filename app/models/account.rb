@@ -1,7 +1,6 @@
 class Account < ApplicationRecord
   has_many :entries
-
-  scope :current, -> { first }
+  belongs_to :user
 
   def as_json(options = {})
     super(options.merge(include: {entries: {except: [:account_id, :updated_at]}}))

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="MeiQian">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MeiQian Expense Manager</title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="small-12 medium-8 large-6 medium-offset-2 large-offset-3">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

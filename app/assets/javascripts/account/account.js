@@ -6,7 +6,7 @@ angular.module('MeiQian')
         return parseFloat(entry.amount);
       }).reduce(function(a,b) {
         return a + b;
-      });
+      }, 0.0);
     };
     o.getFromServer = function() {
       return $http.get('/account.json')
