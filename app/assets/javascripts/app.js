@@ -31,7 +31,7 @@ angular.module('MeiQian', ['ui.router', 'templates', 'Devise'])
           templateUrl: 'account/_new_income.html',
           data: { income: true }
         });
-      $urlRouterProvider.otherwise('account');
+      $urlRouterProvider.otherwise('login');
 
       function authenticate($q, Auth, $state, $timeout) {
         if (Auth.isAuthenticated()) {
