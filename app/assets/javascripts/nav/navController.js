@@ -6,7 +6,7 @@ angular.module('MeiQian')
     Auth.currentUser().then(function(user) {
       $scope.user = user;
     });
-    $scope.on('devise:login', function(e, user) {
+    $scope.$on('devise:login', function(e, user) {
       $scope.user = user;
     });
   }]);
