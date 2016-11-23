@@ -1,5 +1,5 @@
 class Account < ApplicationRecord
-  has_many :entries
+  has_many :entries, dependent: :destroy
   belongs_to :user
 
   def as_json(options = {})

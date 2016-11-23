@@ -7,7 +7,7 @@ class AccountsController < ApplicationController
   end
 
   def show
-    respond_with current_user.account
+    respond_with current_user.account, as: :json
   end
 
   private
