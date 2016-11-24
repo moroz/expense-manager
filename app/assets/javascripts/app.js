@@ -1,4 +1,4 @@
-angular.module('MeiQian', ['ui.router', 'templates'])
+angular.module('MeiQian', ['ui.router', 'templates', 'ngResource'])
   .config(['$stateProvider', '$urlRouterProvider', 
     function($stateProvider, $urlRouterProvider) {
       $stateProvider
