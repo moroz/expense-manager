@@ -1,6 +1,7 @@
 class Entry < ApplicationRecord
   belongs_to :account
   after_create :update_account_balance
+  after_update :update_account_balance
 
   scope :date, ->(date) { where(created_at: date.beginning_of_day..date.end_of_day) }
   scope :today, -> { date(Date.today) }

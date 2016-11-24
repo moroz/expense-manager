@@ -6,7 +6,10 @@
   </thead>
   <tr data-ng-repeat="entry in account.entries" data-ng-class="entry.amount < 0 ? 'expense' : 'income'" id="entry_{{entry.id}}">
     <td class="entry__amount">{{ entry.amount | number:2 }}</td>
-    <td class="entry__description">{{ entry.description }}</td>
+    <td class="entry__description">{{ entry.description }}
+      <a href="#/entries/{{ entry.id }}">Details</a>
+      <a href="#/entries/{{ entry.id }}/edit">Edit</a>
+    </td>
   </tr>
   <tfoot>
     <td class="account__total">Total:

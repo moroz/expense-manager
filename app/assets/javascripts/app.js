@@ -8,9 +8,7 @@ angular.module('MeiQian', ['ui.router', 'templates', 'ngResource'])
           controller: 'AccountController',
           resolve: {
             accountPromise: ['account', function(account) {
-              if (!account.loaded) {      // only request account.json from the server if it's not loaded yet
-                return account.getFromServer();
-              }
+              return account.getFromServer();
             }]
           }
         })
@@ -26,10 +24,15 @@ angular.module('MeiQian', ['ui.router', 'templates', 'ngResource'])
           templateUrl: 'account/_new_income.html',
           data: { income: true }
         })
-        .state('resourceDemo', {
+        .state('viewEntry', {
           url: '/entries/:id',
-          controller: 'EntriesController',
-          templateUrl: 'entries/_entry.html',
+          controller: 'EntryViewController',
+          templateUrl: 'entries/_entry.html'
+        })
+        .state('editEntry', {
+          url: '/entries/:id/edit',
+          controller: 'EntryUpdateController',
+          templateUrl: 'entries/_edit_entry.html'
         });
       $urlRouterProvider.otherwise('account');
     }]);

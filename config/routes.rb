@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'ng#angular'
 
   scope '/api' do
-    resources :entries, only: [:show,:create]
+    resources :entries, only: [:show,:create,:update,:destroy]
     resource :account, only: [:show]
   end
 
