@@ -19,6 +19,10 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'factory_girl_rails'
+end
+
 group :development do
   gem 'web-console'
   gem 'better_errors'
