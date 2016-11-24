@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'accounts#angular'
+  root to: 'ng#angular'
 
   scope '/api' do
     resources :entries, only: [:show,:create]
