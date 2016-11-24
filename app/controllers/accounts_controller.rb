@@ -3,7 +3,6 @@ class AccountsController < ApplicationController
   layout :which_layout
 
   def angular
-    render 'layouts/angular'
   end
 
   def show

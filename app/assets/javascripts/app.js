@@ -25,6 +25,11 @@ angular.module('MeiQian', ['ui.router', 'templates', 'ngResource'])
           controller: 'AccountController',
           templateUrl: 'account/_new_income.html',
           data: { income: true }
+        })
+        .state('resourceDemo', {
+          url: '/entries/:id',
+          controller: 'EntriesController',
+          templateUrl: 'entries/_entry.html',
         });
       $urlRouterProvider.otherwise('account');
     }]);

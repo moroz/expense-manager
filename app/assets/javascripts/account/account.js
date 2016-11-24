@@ -9,7 +9,7 @@ angular.module('MeiQian')
       }, 0.0);
     };
     o.getFromServer = function() {
-      return $http.get('/account.json')
+      return $http.get('/api/account.json')
         .success(function(data) {
           angular.copy(data.entries, o.entries);
           o.balance = parseFloat(data.balance);
@@ -18,7 +18,7 @@ angular.module('MeiQian')
         });
     };
     o.addEntry = function(description, amount) {
-      return $http.post('/account/entries.json', {description: description, amount: amount});
+      return $http.post('/api/entries.json', {description: description, amount: amount});
     };
     return o;
   }]);
