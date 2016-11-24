@@ -1,11 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EntriesController, type: :controller do
-  before :each do
-    @request.env['devise.mapping'] = Devise.mappings[:user]
-    @user = FactoryGirl.create(:user)
-    sign_in @user
-  end
+  authorize_before_each_example
 
   let(:entry) { FactoryGirl.create(:entry, amount: 100.0, description: "Money", account: @user.account) }
 

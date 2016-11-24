@@ -56,3 +56,11 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+def authorize_before_each_example
+  before :each do
+    @request.env['devise.mapping'] = Devise.mappings[:user]
+    @user = FactoryGirl.create(:user)
+    sign_in @user
+  end
+end
