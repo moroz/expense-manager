@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   def create
-    account = Account.current
+    account = current_user.account
     entry = account.entries.create(entry_params)
     respond_with account, entry
   end

@@ -4,7 +4,7 @@
     <td class="entry__amount">Amount ({{ account.currency }})</td>
     <td>Description</td>
   </thead>
-  <tr data-ng-repeat="entry in account.entries" data-ng-class="entry.amount < 0 ? 'expense' : 'income'">
+  <tr data-ng-repeat="entry in account.entries" data-ng-class="entry.amount < 0 ? 'expense' : 'income'" id="entry_{{entry.id}}">
     <td class="entry__amount">{{ entry.amount | number:2 }}</td>
     <td class="entry__description">{{ entry.description }}</td>
   </tr>

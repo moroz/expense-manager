@@ -12,7 +12,7 @@ angular.module('MeiQian')
       return $http.get('/account.json')
         .success(function(data) {
           angular.copy(data.entries, o.entries);
-          o.balance = data.balance;
+          o.balance = parseFloat(data.balance);
           o.currency = data.currency;
           o.loaded = true;
         });

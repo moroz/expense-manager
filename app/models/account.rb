@@ -3,7 +3,7 @@ class Account < ApplicationRecord
   belongs_to :user
 
   def as_json(options = {})
-    super(options.merge(include: {entries: {except: [:account_id, :updated_at]}}))
+    super(options.merge(include: {entries: {only: [:id, :amount, :description]}}))
   end
 
   def update_balance!
