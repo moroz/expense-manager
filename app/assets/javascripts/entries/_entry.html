@@ -1,8 +1,19 @@
-<h1>Entry {{ entry.id }}</h1>
-{{ entry.amount }} {{ entry.description }}
+<div class="page-header">
+  <h1>Details: {{entry.description}}</h1>
+</div>
 
-<div class="links">
-  <a href="#/account">Back to account</a>
-  <a href="#/entries/{{ entry.id }}/edit">Edit entry</a>
-  <a ng-click="deleteEntry()">Delete entry</a>
+<p>
+  <strong>Amount:</strong>
+  {{entry.amount | currency}}
+</p>
+
+<p>
+  <strong>Date:</strong>
+  {{entry.created_at | date:'medium' }}
+</p>
+
+<div class="button-group expanded">
+  <a href="#/account" class="button"><i class="fi-arrow-left"></i> Back to account</a>
+  <a href="#/entries/{{ entry.id }}/edit" class="button success"><i class="fi-pencil"></i> Edit entry</a>
+  <a ng-click="deleteEntry()" class="button alert"><i class="fi-x"></i> Delete entry</a>
 </div>

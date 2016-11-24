@@ -1,25 +1,23 @@
 <h1>Account details</h1>
 <table>
   <thead>
-    <td class="entry__amount">Amount ({{ account.currency }})</td>
-    <td>Description</td>
+    <td class="entry__amount">Amount&nbsp;({{ account.currency }})</td>
+    <td colspan="2">Description
+      <small>(click to see details)</small></td>
   </thead>
   <tr data-ng-repeat="entry in account.entries" data-ng-class="entry.amount < 0 ? 'expense' : 'income'" id="entry_{{entry.id}}">
     <td class="entry__amount">{{ entry.amount | number:2 }}</td>
-    <td class="entry__description">{{ entry.description }}
-      <a href="#/entries/{{ entry.id }}">Details</a>
-      <a href="#/entries/{{ entry.id }}/edit">Edit</a>
-    </td>
+    <td class="entry__description"><a href="#/entries/{{entry.id}}">{{ entry.description }}</a></td>
   </tr>
   <tfoot>
-    <td class="account__total">Total:
+    <td class="account__total">Total&nbsp;({{account.currency}}):<br>
       <span ng-class="account.sum() < 0 ? 'negative' : 'positive'">
-        {{ account.sum() | currency : account.currency }}
+        {{ account.sum() | number:2 }}
       </span>
     </td>
-    <td class="account__balance">
+    <td class="account__balance" colspan="2">
       <span ng-hide="round(account.balance) === round(account.sum())">
-        Account balance:
+        Account balance:<br>
         <span ng-class="account.balance < 0 ? 'negative' : 'positive'">
           {{ account.balance | currency : account.currency }}
         </span>

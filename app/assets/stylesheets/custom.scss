@@ -1,3 +1,4 @@
+@import 'settings';
 @import 'custom_variables';
 
 .row {
@@ -11,6 +12,19 @@
 .expense .entry__amount, .negative { color: $custom-red; }
 
 td.entry__amount, td.account__total {
-  width: 180px;
+  width: 25%;
   text-align: right;
+}
+
+.entry__description {
+  a, a:visited {
+    // color: $black;
+    font-variant: bold;
+  }
+}
+
+@include breakpoint(medium) {
+  td.entry__amount, td.account__total {
+    width: 6rem;
+  }
 }

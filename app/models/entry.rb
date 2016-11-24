@@ -8,10 +8,6 @@ class Entry < ApplicationRecord
   scope :month, ->(month) { where(created_at: month.beginning_of_month..month.end_of_month) }
   scope :this_month, -> { month(Date.today) }
 
-  def to_json(options = {})
-    super(options.merge(only: [:id, :amount, :description]))
-  end
-
   private 
 
   def update_account_balance

@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
 gem 'foundation-rails'
+gem 'foundation-icons-sass-rails'
 gem 'devise'
 
 group :development, :test do
